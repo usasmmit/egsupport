@@ -1,0 +1,6 @@
+{
+  "name": "SMMService UK - eCommerce & Growth Services",
+  "description": "Professional eCommerce portal for SMMService.uk offering social media marketing, verified accounts, review boosting, and SEO solutions with crypto checkout and 24/7 support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
