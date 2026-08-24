@@ -30,8 +30,8 @@
   <url>
     <loc>https://smmservice.co.uk/#blog</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://smmservice.co.uk/#payment-guide</loc>
@@ -76,30 +76,66 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog & Educational Content Articles -->
+  <!-- Blog & Educational Content Articles (Updated & Expanded) -->
   <url>
     <loc>https://smmservice.co.uk/#blog/how-to-safely-use-verified-stripe-accounts-for-global-dropshipping</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smmservice.co.uk/#blog/how-to-prevent-21-day-holding-and-rolling-reserves-paypal-business</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smmservice.co.uk/#blog/how-to-operate-verified-wise-and-mercury-business-accounts-cross-border</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://smmservice.co.uk/#blog/how-to-safely-scale-facebook-and-google-ads-with-agency-accounts</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://smmservice.co.uk/#blog/the-impact-of-google-5-star-reviews-on-local-seo-ranking</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smmservice.co.uk/#blog/how-to-legally-remove-fake-negative-reviews-google-trustpilot</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smmservice.co.uk/#blog/high-da-90-contextual-dofollow-backlinks-google-ranking-blueprint</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://smmservice.co.uk/#blog/crypto-exchange-tier-3-kyc-guide-binance-coinbase-kraken</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smmservice.co.uk/#blog/how-to-scale-cold-email-outreach-with-amazon-ses-and-workspace-smtp</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smmservice.co.uk/#blog/complete-guide-to-using-us-google-voice-pva-numbers-security</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
 
   <!-- Category & Service Direct Landing Pages -->
