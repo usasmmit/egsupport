@@ -12,6 +12,30 @@
     <link rel="shortcut icon" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
+    <!-- Polyfill/Safeguard for getter-only window.fetch in sandboxed iframes -->
+    <script type="text/javascript">
+      (function() {
+        try {
+          var _origFetch = typeof window !== 'undefined' ? window.fetch : null;
+          var _currentFetch = _origFetch ? _origFetch.bind(window) : function() { return Promise.reject(new Error('Fetch not available')); };
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return _currentFetch;
+            },
+            set: function(fn) {
+              if (typeof fn === 'function') {
+                _currentFetch = fn;
+              }
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // Graceful fallback if window.fetch cannot be reconfigured
+        }
+      })();
+    </script>
+
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages redirect restoration
