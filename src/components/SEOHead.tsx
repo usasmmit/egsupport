@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
 
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 export interface SEOHeadProps {
   title: string;
   description: string;
@@ -8,6 +13,9 @@ export interface SEOHeadProps {
   ogType?: 'website' | 'article' | 'product';
   ogImage?: string;
   schema?: Record<string, any> | Array<Record<string, any>>;
+  schemas?: Record<string, any> | Array<Record<string, any>>;
+  breadcrumbs?: BreadcrumbItem[];
+  noIndex?: boolean;
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -17,7 +25,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   canonicalUrl,
   ogType = 'website',
   ogImage = 'https://smmservice.co.uk/og-banner.png',
-  schema
+  schema,
+  schemas,
+  breadcrumbs,
+  noIndex = false,
 }) => {
   useEffect(() => {
     // 1. Update Title
@@ -33,6 +44,13 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       }
       element.setAttribute('content', content);
     };
+
+    // Robots
+    if (noIndex) {
+      setMeta('name', 'robots', 'noindex, nofollow');
+    } else {
+      setMeta('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    }
 
     // Meta Description & Keywords
     setMeta('name', 'description', description);
@@ -74,22 +92,22 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       existingScript.remove();
     }
 
-    if (schema) {
+    const schemasToInject = schemas || schema;
+    if (schemasToInject) {
       const script = document.createElement('script');
       script.id = 'page-jsonld-schema';
       script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(schema);
+      script.textContent = JSON.stringify(schemasToInject);
       document.head.appendChild(script);
     }
 
     return () => {
-      // Clean up dynamic schema if needed
       const currentScript = document.getElementById('page-jsonld-schema');
       if (currentScript) {
         currentScript.remove();
       }
     };
-  }, [title, description, keywords, canonicalUrl, ogType, ogImage, schema]);
+  }, [title, description, keywords, canonicalUrl, ogType, ogImage, schema, schemas, breadcrumbs, noIndex]);
 
   return null;
 };

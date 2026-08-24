@@ -47,6 +47,16 @@ export const ServicesDirectoryPage: React.FC<ServicesDirectoryPageProps> = ({
   const [showCategoryGrid, setShowCategoryGrid] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
+  // Synchronize state when initialCategory or searchQuery prop changes
+  React.useEffect(() => {
+    setActiveCategory(initialCategory);
+    setVisibleCount(24);
+  }, [initialCategory]);
+
+  React.useEffect(() => {
+    setInternalSearch(searchQuery || '');
+  }, [searchQuery]);
+
   const filteredServices = useMemo(() => {
     return SERVICES.filter((service) => {
       // Category match

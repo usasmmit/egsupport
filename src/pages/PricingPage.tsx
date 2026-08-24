@@ -525,8 +525,19 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                                       ${pkg.price}
                                     </span>
                                     <button
+                                      type="button"
                                       onClick={() => {
-                                        addToCart(service, pkg);
+                                        addToCart({
+                                          serviceId: service.id,
+                                          serviceSlug: service.slug,
+                                          serviceTitle: service.title,
+                                          packageId: pkg.id,
+                                          packageName: pkg.name,
+                                          quantityLabel: `${pkg.quantity} ${pkg.unit}`,
+                                          unitPrice: pkg.price,
+                                          quantity: 1,
+                                          targetUrlOrDetails: '',
+                                        });
                                         setIsCartOpen(true);
                                       }}
                                       className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-[11px] font-bold transition-colors flex items-center gap-1 cursor-pointer shadow-2xs"

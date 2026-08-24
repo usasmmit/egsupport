@@ -189,11 +189,14 @@ export function AppContent() {
 
   // Central Navigation Handler with History PushState
   const navigateTo = (path: string, options?: { replace?: boolean; scroll?: boolean }) => {
+    const isSubpath = window.location.pathname.startsWith('/egsupport');
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    const fullPath = (isSubpath ? '/egsupport' : '') + cleanPath;
+    
     if (options?.replace) {
-      window.history.replaceState(null, '', cleanPath);
+      window.history.replaceState(null, '', fullPath);
     } else {
-      window.history.pushState(null, '', cleanPath);
+      window.history.pushState(null, '', fullPath);
     }
     syncRouteFromLocation();
     if (options?.scroll !== false) {
