@@ -46,7 +46,11 @@ export function AppContent() {
       }
       
       const targetUrl = cleanPath + (window.location.search || '');
-      window.history.replaceState(null, '', targetUrl);
+      try {
+        window.history.replaceState(null, '', targetUrl);
+      } catch (e) {
+        console.warn('History replaceState failed:', e);
+      }
       pathname = cleanPath.toLowerCase();
     }
 
@@ -193,10 +197,14 @@ export function AppContent() {
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
     const fullPath = (isSubpath ? '/egsupport' : '') + cleanPath;
     
-    if (options?.replace) {
-      window.history.replaceState(null, '', fullPath);
-    } else {
-      window.history.pushState(null, '', fullPath);
+    try {
+      if (options?.replace) {
+        window.history.replaceState(null, '', fullPath);
+      } else {
+        window.history.pushState(null, '', fullPath);
+      }
+    } catch (e) {
+      console.warn('History navigation state push failed:', e);
     }
     syncRouteFromLocation();
     if (options?.scroll !== false) {
